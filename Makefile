@@ -11,9 +11,6 @@ WIN_SRC = win_service.c
 OBJ = $(SRC:.c=.o)
 WIN_OBJ = $(WIN_SRC:.c=.o)
 
-PREFIX := /usr/local
-INSTALL_DIR := $(DESTDIR)$(PREFIX)/bin/
-
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
@@ -30,5 +27,4 @@ clean:
 	rm -f $(TARGET) $(TARGET).exe $(OBJ) $(WIN_OBJ)
 
 install: $(TARGET)
-	mkdir -p $(INSTALL_DIR)
-	install -m 755 $(TARGET) $(INSTALL_DIR)
+	install -m 755 $(TARGET) ..
